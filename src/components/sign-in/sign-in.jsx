@@ -3,7 +3,7 @@ import CustomButton from '../custom-button/custom-button'
 import FormInput from '../form-input/form-input'
 import './sign-in.scss'
 
-import { signInWithGoogle } from '../../firebase/firebase.utils'
+import { signInWithGoogle, auth } from '../../firebase/firebase.utils'
 class Singin extends React.Component {
     constructor(props) {
         super(props)
@@ -14,10 +14,17 @@ class Singin extends React.Component {
         }
     }
 
-    handleSubmit = e => {
-        e.preventDefault()
+    handleSubmit = async e => {
+        e.preventDefault();
 
-        this.setState({ email: '', password: '' })
+        const { email, password } = this.state
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({ email: '', password: '' })
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     handleChange = e => {
