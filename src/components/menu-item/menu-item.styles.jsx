@@ -1,6 +1,8 @@
-.menu-item {
+import styled from 'styled-components'
+
+export const MenuStyle = styled.div`
     min-width: 30%;
-    height: 240px;
+height: ${({ size }) => (size ? '380px' : '240px')};
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -21,8 +23,9 @@
         opacity: 0.9;
       }
 
+     
     }
-    
+
     &:first-child {
       margin-right: 7.5px;
     }
@@ -33,16 +36,21 @@
   
     &.large{
         height: 380px;
-    } 
+    }
 
-    .background-image{
+`
+
+export const BackgroundImage = styled.img`
         width: 100%;
         height: 100%;
         background-position: center;
         background-size: cover;
-      }
-    .content {
-      height: 90px;
+        background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+
+   `
+
+export const ContextMenuStyle = styled.div`
+    height: 90px;
       padding: 0 25px;
       display: flex;
       flex-direction: column;
@@ -52,17 +60,17 @@
       background-color: white;
       opacity: .7;
       position: absolute;
-  
-      .title {
-        font-weight: bold;
+    
+   `
+
+export const ContextTitle = styled.h1`
+         font-weight: bold;
         margin-bottom: 6px;
         font-size: 22px;
         color: #4a4a4a;
-      }
   
-      .subtitle {
+   `
+export const ContextSubTitle = styled.span`
         font-weight: lighter;
         font-size: 16px;
-      }
-    }
-}
+   `
