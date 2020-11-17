@@ -1,9 +1,8 @@
 import React from 'react'
 import { selectCollection } from '../../redux/shop/shop.selector'
 import { connect } from 'react-redux'
-import CollctionItem from '../../components/collection-item/collection-item'
-import { CollectionConStyle, Items } from './collection.styles'
-import { Title } from '../../components/sign-up/sign-up.styles'
+import CollectionItem from '../../components/collection-item/collection-item'
+import { CollectionConStyle, Items, Title } from './collection.styles'
 
 
 const CollectionPage = ({ collection }) => {
@@ -14,7 +13,7 @@ const CollectionPage = ({ collection }) => {
             <Items>
                 {
                     items.map(item => (
-                        <CollctionItem key={item.id} item={item} />
+                        <CollectionItem key={item.id} item={item} />
                     ))
                 }</Items>
         </CollectionConStyle>

@@ -8,7 +8,7 @@ const CollectionItem = ({ item, addItem }) => {
     return (
         <CollectionItemContainerStyle>
             <CollectionItemImageStyle className='image' imageUrl={imageUrl} />
-            <Collectionfooter className='collection-footer'>
+            <Collectionfooter>
                 <Name>{name}</Name>
                 <Price className='price'>{price}</Price>
             </Collectionfooter>
